@@ -1,5 +1,6 @@
 package xyz.devyu.springinitialize.ropository;
 
+import org.springframework.stereotype.Repository;
 import xyz.devyu.springinitialize.domain.Member;
 
 import java.util.*;

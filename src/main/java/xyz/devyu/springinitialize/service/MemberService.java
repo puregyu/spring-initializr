@@ -1,22 +1,23 @@
 package xyz.devyu.springinitialize.service;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xyz.devyu.springinitialize.domain.Member;
 import xyz.devyu.springinitialize.ropository.MemberRepository;
-import xyz.devyu.springinitialize.ropository.MemoryMemberRepository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
 /**
  * 서버스 단에서 메서드 name은 비지니스 로직에 가깝게 설계하는 것이 좋다.
  */
-@Service
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * 회원가입
