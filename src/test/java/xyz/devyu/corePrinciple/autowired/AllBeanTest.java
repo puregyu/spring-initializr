@@ -1,0 +1,30 @@
+package xyz.devyu.corePrinciple.autowired;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import xyz.devyu.corePrinciple.AutoAppConfig;
+import xyz.devyu.corePrinciple.discount.DiscountPolicy;
+
+import java.util.List;
+import java.util.Map;
+
+public class AllBeanTest {
+    @Test
+    void findAllBean() {
+        ApplicationContext ac = new AnnotationConfigApplicationContext(AutoAppConfig.class, DiscountService.class);
+
+    }
+
+    static class DiscountService {
+        private final Map<String, DiscountPolicy> policyMap;
+        private final List<DiscountPolicy> discountPolicies;
+
+        DiscountService(Map<String, DiscountPolicy> policyMap, List<DiscountPolicy> discountPolicies) {
+            this.policyMap = policyMap;
+            this.discountPolicies = discountPolicies;
+            System.out.println("policyMap = " + policyMap);
+            System.out.println("discountPolicies = " + discountPolicies);
+        }
+    }
+}

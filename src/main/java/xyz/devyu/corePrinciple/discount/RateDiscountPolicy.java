@@ -1,8 +1,10 @@
 package xyz.devyu.corePrinciple.discount;
 
+import org.springframework.stereotype.Component;
 import xyz.devyu.corePrinciple.member.Grade;
 import xyz.devyu.corePrinciple.member.Member;
 
+@Component
 public class RateDiscountPolicy implements DiscountPolicy {
 
     // 10% 할인금액
